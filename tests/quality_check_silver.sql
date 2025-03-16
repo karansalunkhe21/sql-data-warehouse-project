@@ -88,7 +88,7 @@ SELECT
     NULLIF(sls_due_dt, 0) AS sls_due_dt 
 FROM bronze.crm_sales_details
 WHERE sls_due_dt <= 0 
-    OR LEN(sls_due_dt) != 8 
+    OR LENGTH(CAST(sls_due_dt AS TEXT)) != 8 
     OR sls_due_dt > 20500101 
     OR sls_due_dt < 19000101;
 
